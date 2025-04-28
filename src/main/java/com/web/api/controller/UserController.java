@@ -3,6 +3,7 @@ package com.web.api.controller;
 import com.web.api.model.User;
 import com.web.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class UserController {
     @GetMapping
     public List<User> getUsers() {
         return repository.findAll();
+
     }
 
     @GetMapping("/{username}")
