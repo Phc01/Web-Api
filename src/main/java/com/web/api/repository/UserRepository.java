@@ -1,5 +1,6 @@
 package com.web.api.repository;
 
+import com.web.api.handler.BusinessException;
 import com.web.api.model.User;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +11,9 @@ import java.util.List;
 public class UserRepository {
 
     public void save(User user) {
+        if (user.getLogin()==null){
+            throw new BusinessException("O campo login é obrigatório.");
+        }
         if (user.getId()==null){
             System.out.println("Save");
         } else {
